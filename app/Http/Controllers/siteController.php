@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\controllers;
+namespace APP\Http\siteController;
 
 class siteController
 {

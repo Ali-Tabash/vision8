@@ -1,8 +1,11 @@
 <?php
 
  
+
 use Illuminate\Support\Facades\Route;
-use App\Http\controllers\siteController;
+use APP\Http\siteController\siteController;
+
+
 //use
 //namespace
 
@@ -93,6 +96,6 @@ use App\Http\controllers\siteController;
     //         return 'Hello World';
     //     });
 // الشكل النهائي لرابط 
-     Route::get('/', [siteController::class,'index'])->name('holle world');  
+     Route::get('/',[siteController::class,'index'])->name('holle World');  
         
 
