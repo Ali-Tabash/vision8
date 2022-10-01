@@ -8,7 +8,7 @@ Route::get('admin/comments', function(){ return 'Admin comments';});
 Route::get('admin/products', function(){ return 'Admin products';});
 Route::get('admin/orders', function(){ return 'Admin orders';});
 Route::get('admin/payments', function(){ return 'Admin payments';});
-Route::get('admin/payments', function(){ return 'Admin payments';});
+
 // Route group( الروابط تحت مسمى واحد مجموعة من )
 
     // Route::prefix('admin')->group(function(){

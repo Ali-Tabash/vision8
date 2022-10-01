@@ -1,11 +1,12 @@
 <?php
 
-namespace APP\Http\siteController;
+namespace APP\Http\Controllers;
 
 class siteController
 {
-    function index(){
-        return 'Hello World';
+   public function index(){
+        return 're World';
 } 
 }
+
 

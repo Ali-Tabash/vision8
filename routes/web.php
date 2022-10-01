@@ -1,9 +1,17 @@
 <?php
 
- 
 
 use Illuminate\Support\Facades\Route;
-use APP\Http\siteController\siteController;
+use App\Http\Controllers\alicontroller;
+use App\Http\Controllers\webController;
+
+use App\Http\Controllers\siteController;
+use App\Http\Controllers\admincontroller;
+use App\Http\Controllers\site1controller;
+use App\Http\Controllers\userscontroller;
+
+
+
 
 
 //use
@@ -41,20 +49,20 @@ use APP\Http\siteController\siteController;
 // });
 
 //  لعمل قيمة متغيرة في الرابط
-// Route::get('user/{name}',function($name){
-//     return 'welcome' . $name;
-// });
-// Route::get('/ali/{name}/{age}',function($name,$age){
-//     return ' welcome '. $name . 'is age your' .$age;
-// })->whereAlpha('name')->whereNumber('age');
+Route::get('user/{name}',function($name){
+    return 'welcome' . $name;
+});
+Route::get('/ali/{name}/{age}',function($name,$age){
+    return ' welcome '. $name . 'is age your' .$age;
+})->whereAlpha('name')->whereNumber('age');
 
-// Route::get('news/{id}',function($id){
-//     return 'News' .$id;
-// });
-// Route::get('news/',function(){
-//     return'news';
-// });
-//  (?)لجعل الرابطين يعملوا برابط واحد نستعنى عن الاول ونضع فقط علامة 
+Route::get('news/{id}',function($id){
+    return 'News' .$id;
+});
+Route::get('news/',function(){
+    return'news';
+});
+//  (?)لجعل الرابطين يعملوا برابط واحد نستعنى عن الاول ونضع فقط علامة
 // Route::get('news/{id?}',function($id=null){
 //     return 'News' .$id;
 // });
@@ -64,7 +72,7 @@ use APP\Http\siteController\siteController;
 //     return ' welcome '. $name . 'is age your' .$age;
 // });
 
-// Route::get('admin/users', function(){  return 'Admin users';  }); 
+// Route::get('admin/users', function(){  return 'Admin users';  });
 // Route::get('admin/posts', function(){ return 'Admin posts';});
 // Route::get('admin/comments', function(){ return 'Admin comments';});
 // Route::get('admin/products', function(){ return 'Admin products';});
@@ -73,7 +81,7 @@ use APP\Http\siteController\siteController;
 // Route group( الروابط تحت مسمى واحد مجموعة من )
 
     // Route::prefix('admin')->group(function(){
-    //     Route::get('users', function(){  return 'Admin users'; })->name('admin.users'); 
+    //     Route::get('users', function(){  return 'Admin users'; })->name('admin.users');
     //     Route::get('posts', function(){ return 'Admin posts';})->name('admin.posts');
     //     Route::get('comments', function(){ return 'Admin comments';})->name('admin.comment');
     //     Route::get('products', function(){ return 'Admin products';})->name('admin.products');
@@ -83,7 +91,7 @@ use APP\Http\siteController\siteController;
 
     // Route::prefix('admin')->name('admin.')->group(function(){
     //     Route::get('users', function(){  return 'Admin users'; })
-    //     ->name('users'); 
+    //     ->name('users');
     //     Route::get('posts', function(){ return 'Admin posts';})->name('posts');
     //     Route::get('comments', function(){ return 'Admin comments';})->name('comment');
     //     Route::get('products', function(){ return 'Admin products';})->name('products');
@@ -95,7 +103,36 @@ use APP\Http\siteController\siteController;
     //  Route::get('/', function () {
     //         return 'Hello World';
     //     });
-// الشكل النهائي لرابط 
-     Route::get('/',[siteController::class,'index'])->name('holle World');  
-        
+// الشكل النهائي لرابط
+//  Route::get('/',[siteController::class,'index'])->name('index');
+
+// Route::get('/',[webController::class,'home'])->name('home');
+
+//    Route::get('/',[postcontroller::class,'index'])->name('index');
+
+
+
+   Route::get('/',[alicontroller::class,'fhkifhj'] )->name('fhkifhj');
+   Route::get('/about',[alicontroller::class,'about'] )->name('about');
+   Route::get('/contact',[alicontroller::class,'contact'] )->name('contact');
+   Route::get('/user',[alicontroller::class,'user'] )->name('user');
+
+
+   Route::prefix('admin')->name('admin.')->group(function(){
+        Route::get('/',[admincontroller::class,'index'])->name('index');
+        Route::get('/carts',[admincontroller::class,'carts'])->name('carts');
+        Route::get('/product',[admincontroller::class,'product'])->name('product');
+        Route::get('/ww',[admincontroller::class,'ww'])->name('ww');
+        Route::get('/ww',[admincontroller::class,'ww'])->name('ww');
+        Route::get('/ww',[admincontroller::class,'ww'])->name('ww');
+
+   });
+   Route::prefix('users')->name('users.')->group(function(){
+       Route::get('/'  ,[userscontroller::class,'index'])->name('index');
+       Route::get('/me',[userscontroller::class,'me'])->name('me');
+       Route::get('/qq',[userscontroller::class,'qq'])->name('qq');
+       Route::get('/ee',[userscontroller::class,'ee'])->name('ee');
+   });
+
+   Route::get('site1',[site1controller::class,'index'])->name('site1');
 
