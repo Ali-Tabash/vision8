@@ -5,14 +5,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\alicontroller;
 use App\Http\Controllers\webController;
 
+use App\Http\Controllers\mailcontroller;
 use App\Http\Controllers\siteController;
+
 use App\Http\Controllers\admincontroller;
+use App\Http\Controllers\Formscontroller;
+use App\Http\Controllers\postscontroller;
 use App\Http\Controllers\site1controller;
+use App\Http\Controllers\site2controller;
+use App\Http\Controllers\site3controller;
 use App\Http\Controllers\userscontroller;
-
-
-
-
+use App\Models\post;
 
 //use
 //namespace
@@ -136,3 +139,44 @@ Route::get('news/',function(){
 
    Route::get('site1',[site1controller::class,'index'])->name('site1');
 
+   Route::prefix('site2')->name('site2.')->group(function(){
+    Route::get('/',[site2controller::class,('index')])->name('index');
+    Route::get('/contact',[site2controller::class,('contact')])->name('contact');
+    Route::get('/about',[site2controller::class,('about')])->name('about');
+    Route::get('/post',[site2controller::class,('post')])->name('post');
+   });
+
+   Route::prefix('site3')->name('site3.')->group(function(){
+    Route::get('/',[site3controller::class,('index')])->name('index');
+    Route::get('/experience',[site3controller::class,('experience')])->name('experience');
+    Route::get('/education',[site3controller::class,('education')])->name('education');
+    Route::get('/skills',[site3controller::class,('skills')])->name('skills');
+    Route::get('/interests',[site3controller::class,('interests')])->name('interests');
+    Route::get('/awards',[site3controller::class,('awards')])->name('awards');
+   });
+
+
+    Route::get('form1',[Formscontroller::class,'form1'])->name('form1');
+    Route::post('form1',[Formscontroller::class,'form1_data'])->name('form1_data');
+
+    Route::get('form2',[Formscontroller::class,'form2'])->name('form2');
+    Route::post('form2',[Formscontroller::class,'form2_data'])->name('form2_data');
+
+    Route::get('form3',[Formscontroller::class,'form3'])->name('form3');
+    Route::post('form3',[Formscontroller::class,'form3_data'])->name('form3_data');
+
+    Route::get('form4',[Formscontroller::class,'form4'])->name('form4');
+    Route::post('form4',[Formscontroller::class,'form4_data'])->name('form4_data');
+
+    Route::get('form5',[Formscontroller::class,'form5'])->name('form5');
+    Route::post('form5',[Formscontroller::class,'form5_data'])->name('form5_data');
+
+    Route::get('send-mail',[mailcontroller::class,'send'])->name('send');
+
+    Route::get('contact_us',[mailcontroller::class,'contact_us'])->name('contact_us');
+    Route::post('contact_us',[mailcontroller::class,'contact_us_data'])->name('contact_us_data');
+
+    Route::get('send2-mail',[mailcontroller::class,'send2'])->name('send2');
+
+
+    Route::get('posts',[postscontroller::class,'index'])->name('posts.index');
